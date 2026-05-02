@@ -1,7 +1,7 @@
 # Templates de Referência
 
-Documentos de referência estrutural para uso nas skills e no dia a dia.
-Estes arquivos não são usados diretamente — são bases que informam como as skills funcionam.
+Documentos de referência extraídos da Formação Estrategistas de Marketing (Camila Renaux) e boas práticas comerciais.
+Estes arquivos informam como as skills funcionam — não são usados diretamente.
 
 ---
 
@@ -26,9 +26,7 @@ Estes arquivos não são usados diretamente — são bases que informam como as 
 | Arquivo | O que contém | Uso |
 |---------|-------------|-----|
 | [checklist-validacao-negocio.md](estrategia/checklist-validacao-negocio.md) | 6 blocos de validação antes de escalar | Diagnóstico QE e ED |
-| [modelos-de-negocio.md](estrategia/modelos-de-negocio.md) | Mapa de modelos de serviço com critérios | Sessões QE, diagnóstico ED |
-
----
-
-> Estes arquivos foram criados com base em estrutura padrão de boas práticas comerciais.
-> Para atualizar com conteúdo específico dos materiais da Camila Renaux, substituir trechos conforme revisão dos PDFs originais.
+| [modelos-de-negocio.md](estrategia/modelos-de-negocio.md) | 13 modelos de negócio para serviços | Sessões QE, diagnóstico ED |
+| [jornada-consultoria.md](estrategia/jornada-consultoria.md) | 8 etapas da jornada de consultoria (Briefing → Fechamento) | `/pos-reuniao-ed`, `/briefing-cliente` |
+| [jornada-do-cliente.md](estrategia/jornada-do-cliente.md) | 4 etapas da jornada de compra com ferramentas por estágio | Estratégia de marketing QE e ED |
+| [niveis-planejamento.md](estrategia/niveis-planejamento.md) | 3 níveis de planejamento: estratégico, comunicação, operacional | Diagnóstico ED, sessões QE |

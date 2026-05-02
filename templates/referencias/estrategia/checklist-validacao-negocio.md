@@ -1,69 +1,42 @@
 # Referência — Checklist de Validação do Modelo de Negócio
 
-> Conjunto de perguntas e critérios para avaliar se um modelo de negócio está pronto para escalar,
-> ou se ainda precisa de ajustes antes de investir em marketing e vendas.
+> Fonte: Camila Renaux — Formação Estrategistas de Marketing
 > Útil para sessões QE e diagnósticos ED.
 
 ---
 
-## Por que validar antes de escalar
+## Os 6 blocos de validação
 
-Muitos negócios investem em tráfego pago, branding e funis antes de resolver problemas estruturais. A validação evita amplificar o que ainda não funciona.
+### 1. Validação do Problema e da Solução
+- O modelo resolve um problema real do mercado?
+- A solução oferecida tem demanda comprovada?
 
----
+### 2. Mercado e Concorrência
+- Existe um mercado grande o suficiente para sustentar o crescimento do negócio?
+- Há concorrentes diretos? Como o modelo se diferencia?
 
-## Checklist de Validação
+### 3. Sustentabilidade Financeira
+- A estrutura de custos permite lucro sustentável?
+- O modelo gera receita previsível e escalável?
 
-### Bloco 1 — Clareza da oferta
-- [ ] A pessoa consegue explicar o que faz em 1 frase sem usar palavras como "soluções", "transformação" ou "ecossistema"
-- [ ] O cliente ideal está descrito com precisão (setor, momento de vida/negócio, problema específico)
-- [ ] A proposta de valor diz o que muda para o cliente depois da compra
-- [ ] O produto/serviço tem um resultado mensurável
+### 4. Execução e Operacionalização
+- O modelo é viável com os recursos disponíveis?
+- Há barreiras de entrada que dificultam a execução?
 
-### Bloco 2 — Evidência de demanda
-- [ ] Já teve clientes pagantes (mesmo que poucos)
-- [ ] Tem pelo menos 3 depoimentos espontâneos de pessoas que recomendariam
-- [ ] Sabe de onde vieram os últimos 5 clientes
-- [ ] Já recebeu "quando você vai abrir vagas novamente?"
+### 5. Satisfação do Cliente
+- A experiência do cliente é positiva?
+- O modelo favorece a retenção e fidelização de clientes?
 
-### Bloco 3 — Modelo financeiro
-- [ ] Sabe o CAC (custo de aquisição por cliente) ou tem uma estimativa realista
-- [ ] O ticket cobre o custo de entrega com margem positiva
-- [ ] Sabe quantos clientes por mês são necessários para pagar as contas
-- [ ] O modelo de pagamento é compatível com o fluxo de caixa
-
-### Bloco 4 — Operação
-- [ ] Consegue entregar sem depender de terceiros não confiáveis
-- [ ] Tem processo documentado mínimo (não precisa reinventar a roda a cada cliente)
-- [ ] Sabe quanto tempo de trabalho real cada cliente demanda
-- [ ] Consegue escalar 50% sem contratar imediatamente
-
-### Bloco 5 — Comercial
-- [ ] O processo de venda está documentado (mesmo que seja simples)
-- [ ] Sabe em média quantas conversas levam a uma venda
-- [ ] Tem pelo menos 1 canal de aquisição que funciona de forma previsível
-- [ ] Sabe o que faz uma pessoa decidir comprar (ou não comprar)
-
-### Bloco 6 — Posicionamento
-- [ ] Está claro por que escolher essa pessoa/empresa e não outra
-- [ ] A comunicação pública reflete quem ela quer atrair
-- [ ] O preço está alinhado com o posicionamento (não precifica pelo medo)
+### 6. Paixão e Alinhamento com Objetivos Pessoais
+- O modelo faz sentido para você e sua equipe?
+- Ele está alinhado com seus valores e propósito?
 
 ---
 
-## Como usar este checklist
+## Como usar
 
-**Diagnóstico rápido:** contar quantos items marcados. Menos de 15: ajustar antes de escalar. 15–20: pronto para crescer com foco. Mais de 20: a pergunta é onde crescer, não se.
+**No diagnóstico QE:** usar os 6 blocos para identificar qual engrenagem está mais fraca antes de construir o PAP.
 
-**Na sessão QE:** usar como ponto de partida para identificar qual engrenagem está mais fraca.
+**No diagnóstico ED:** usar para identificar onde a empresa está apostando em marketing ou automação antes de ter o produto/processo estabilizado.
 
-**No diagnóstico ED:** usar para identificar onde a empresa está apostando em marketing/automação antes de ter o produto/processo estabilizado.
-
----
-
-## Erros mais comuns
-
-- Achar que o problema é tráfego quando o problema é a oferta
-- Ter clareza sobre o produto mas não sobre para quem é
-- Preço definido pela concorrência ou pelo medo, não pelo valor entregue
-- Escalar um processo que ainda não está funcionando de forma consistente
+**Regra geral:** quem trava no bloco 1 ou 2 não tem problema de marketing — tem problema de oferta.
