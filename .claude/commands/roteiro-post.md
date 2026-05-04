@@ -98,3 +98,10 @@ Se o tema não passa nesses filtros, apresentar um ângulo alternativo antes de 
 - O roteiro deve soar como a Michelle fala, não como conteúdo genérico de Instagram
 - Conteúdo que poderia ser de qualquer perfil de negócios não serve — refazer com ângulo mais específico
 - Europeus são criteriosos, não frios — usar essa distinção sempre que o tema envolver o mercado europeu
+
+**Anti-coach — proibido em qualquer formato:**
+- Papo motivacional ou de palco — nenhuma frase que funcionaria num evento de life coaching
+- Esforço como solução — "é só trabalhar mais" não é argumento, é vazio
+- Dinheiro fácil ou passivo — renda enquanto dorme, fórmula que resolve tudo
+- Guru de segredo — "o que eles não te contam" é exatamente o que ela não é
+- Tom mecânico — se parece gerado, refaz. Tem que parecer conversa, não conteúdo

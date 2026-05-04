@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Você está pronta para o mercado europeu? — Quinta Essência</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --terra: #6B4629; --bosque: #3E5936; --pedra: #BDA78D;
+    --linho: #E4DDD0; --vinho: #541138; --preto: #0A0A0A; --off: #F5F0E8;
+  }
+  body { background: var(--preto); color: var(--off); font-family: 'Raleway', sans-serif; font-weight: 300; line-height: 1.7; min-height: 100vh; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 60px 24px 100px; }
+
+  /* Header */
+  .header { text-align: center; margin-bottom: 64px; }
+  .label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pedra); margin-bottom: 20px; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(28px, 5vw, 46px); line-height: 1.2; margin-bottom: 16px; }
+  h1 em { font-style: italic; color: var(--pedra); }
+  .sub { font-size: 15px; color: #aaa; max-width: 500px; margin: 0 auto; }
+
+  /* Dimensões */
+  .dimension { margin-bottom: 48px; border-left: 2px solid var(--terra); padding-left: 24px; }
+  .dim-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 4px; }
+  .dim-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; color: var(--pedra); margin-bottom: 20px; }
+  .question { margin-bottom: 20px; padding: 20px; border: 1px solid #222; }
+  .q-text { font-size: 15px; color: var(--off); margin-bottom: 14px; }
+  .options { display: flex; gap: 8px; flex-wrap: wrap; }
+  .opt { flex: 1; min-width: 80px; }
+  .opt input { display: none; }
+  .opt label {
+    display: block; text-align: center; padding: 10px 12px;
+    border: 1px solid #333; font-size: 13px; font-weight: 500; cursor: pointer;
+    transition: all 0.2s; color: #888;
+  }
+  .opt input:checked + label { background: var(--terra); border-color: var(--terra); color: var(--off); }
+  .opt label:hover { border-color: var(--terra); color: var(--off); }
+
+  /* Botão */
+  .btn-wrap { text-align: center; margin-top: 48px; }
+  button {
+    background: var(--terra); color: var(--off); border: none;
+    padding: 18px 48px; font-family: 'Raleway', sans-serif; font-size: 13px;
+    font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer;
+  }
+  button:hover { background: #7d5230; }
+
+  /* Resultados */
+  #resultado { display: none; }
+  .score-box { border: 1px solid var(--terra); padding: 40px; text-align: center; margin-bottom: 40px; }
+  .score-num { font-family: 'Playfair Display', serif; font-size: 80px; font-weight: 400; color: var(--terra); line-height: 1; }
+  .score-max { font-family: 'DM Mono', monospace; font-size: 13px; color: #555; margin-top: 4px; }
+  .score-label { font-family: 'Playfair Display', serif; font-style: italic; font-size: 22px; color: var(--pedra); margin-top: 16px; }
+  .score-msg { font-size: 15px; color: #aaa; margin-top: 12px; line-height: 1.8; }
+
+  .breakdown { margin-bottom: 40px; }
+  .breakdown h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; margin-bottom: 20px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .bar-name { font-size: 13px; font-weight: 500; width: 180px; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 4px; background: #222; }
+  .bar-fill { height: 4px; background: var(--terra); transition: width 0.8s ease; }
+  .bar-val { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--pedra); width: 30px; text-align: right; }
+
+  .cta-box { border: 1px solid #222; padding: 32px; text-align: center; }
+  .cta-box p { font-size: 15px; color: #aaa; margin-bottom: 20px; }
+  .cta-box a { background: var(--terra); color: var(--off); padding: 16px 40px; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; display: inline-block; }
+
+  /* Logo */
+  .logo { font-family: 'Playfair Display', serif; font-size: 13px; text-align: center; margin-bottom: 48px; letter-spacing: 2px; }
+  .logo em { font-style: italic; color: var(--pedra); }
+  .logo span { font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 7px; text-transform: uppercase; font-size: 11px; }
+
+  @media (max-width: 480px) { .bar-name { width: 120px; font-size: 12px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo"><em>a</em> Quinta <span>ESSÊNCIA</span></div>
+
+  <div id="quiz">
+    <div class="header">
+      <div class="label">Diagnóstico de Prontidão</div>
+      <h1>Você está pronta para vender<br>no <em>mercado europeu?</em></h1>
+      <p class="sub">15 perguntas para avaliar onde você está e o que precisa ajustar antes de expandir.</p>
+    </div>
+
+    <form id="form-quiz">
+      <!-- Dimensão 1 -->
+      <div class="dimension">
+        <div class="dim-label">01 / Oferta</div>
+        <div class="dim-title">Clareza do que você vende</div>
+        <div class="question"><div class="q-text">Você consegue explicar o que vende em uma frase — para quem é, qual o resultado e quanto custa?</div><div class="options"><div class="opt"><input type="radio" name="q1" id="q1a" value="2"><label for="q1a">Sim</label></div><div class="opt"><input type="radio" name="q1" id="q1b" value="1"><label for="q1b">Parcialmente</label></div><div class="opt"><input type="radio" name="q1" id="q1c" value="0"><label for="q1c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Sua precificação está definida e você consegue justificá-la sem hesitar?</div><div class="options"><div class="opt"><input type="radio" name="q2" id="q2a" value="2"><label for="q2a">Sim</label></div><div class="opt"><input type="radio" name="q2" id="q2b" value="1"><label for="q2b">Parcialmente</label></div><div class="opt"><input type="radio" name="q2" id="q2c" value="0"><label for="q2c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você já vendeu esse produto ou serviço antes, mesmo que no Brasil?</div><div class="options"><div class="opt"><input type="radio" name="q3" id="q3a" value="2"><label for="q3a">Sim</label></div><div class="opt"><input type="radio" name="q3" id="q3b" value="1"><label for="q3b">Parcialmente</label></div><div class="opt"><input type="radio" name="q3" id="q3c" value="0"><label for="q3c">Não</label></div></div></div>
+      </div>
+
+      <!-- Dimensão 2 -->
+      <div class="dimension">
+        <div class="dim-label">02 / Estrutura</div>
+        <div class="dim-title">Operação sem improvisar</div>
+        <div class="question"><div class="q-text">Você entrega o seu serviço com processo definido — sem reinventar a roda a cada cliente?</div><div class="options"><div class="opt"><input type="radio" name="q4" id="q4a" value="2"><label for="q4a">Sim</label></div><div class="opt"><input type="radio" name="q4" id="q4b" value="1"><label for="q4b">Parcialmente</label></div><div class="opt"><input type="radio" name="q4" id="q4c" value="0"><label for="q4c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você tem onboarding documentado — o que acontece assim que alguém compra?</div><div class="options"><div class="opt"><input type="radio" name="q5" id="q5a" value="2"><label for="q5a">Sim</label></div><div class="opt"><input type="radio" name="q5" id="q5b" value="1"><label for="q5b">Parcialmente</label></div><div class="opt"><input type="radio" name="q5" id="q5c" value="0"><label for="q5c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você conseguiria onboarding um novo cliente hoje sem precisar criar tudo do zero?</div><div class="options"><div class="opt"><input type="radio" name="q6" id="q6a" value="2"><label for="q6a">Sim</label></div><div class="opt"><input type="radio" name="q6" id="q6b" value="1"><label for="q6b">Parcialmente</label></div><div class="opt"><input type="radio" name="q6" id="q6c" value="0"><label for="q6c">Não</label></div></div></div>
+      </div>
+
+      <!-- Dimensão 3 -->
+      <div class="dimension">
+        <div class="dim-label">03 / Mercado</div>
+        <div class="dim-title">Conhecimento do contexto europeu</div>
+        <div class="question"><div class="q-text">Você conhece pelo menos 3 diferenças práticas entre vender para brasileiros e para europeus?</div><div class="options"><div class="opt"><input type="radio" name="q7" id="q7a" value="2"><label for="q7a">Sim</label></div><div class="opt"><input type="radio" name="q7" id="q7b" value="1"><label for="q7b">Parcialmente</label></div><div class="opt"><input type="radio" name="q7" id="q7c" value="0"><label for="q7c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você sabe onde os seus potenciais clientes europeus estão e como chegam até serviços como o seu?</div><div class="options"><div class="opt"><input type="radio" name="q8" id="q8a" value="2"><label for="q8a">Sim</label></div><div class="opt"><input type="radio" name="q8" id="q8b" value="1"><label for="q8b">Parcialmente</label></div><div class="opt"><input type="radio" name="q8" id="q8c" value="0"><label for="q8c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você tem algum contato, cliente ou referência dentro do mercado europeu?</div><div class="options"><div class="opt"><input type="radio" name="q9" id="q9a" value="2"><label for="q9a">Sim</label></div><div class="opt"><input type="radio" name="q9" id="q9b" value="1"><label for="q9b">Parcialmente</label></div><div class="opt"><input type="radio" name="q9" id="q9c" value="0"><label for="q9c">Não</label></div></div></div>
+      </div>
+
+      <!-- Dimensão 4 -->
+      <div class="dimension">
+        <div class="dim-label">04 / Caixa</div>
+        <div class="dim-title">Saúde financeira para expandir</div>
+        <div class="question"><div class="q-text">Você tem alguma receita previsível hoje — mesmo que pequena?</div><div class="options"><div class="opt"><input type="radio" name="q10" id="q10a" value="2"><label for="q10a">Sim</label></div><div class="opt"><input type="radio" name="q10" id="q10b" value="1"><label for="q10b">Parcialmente</label></div><div class="opt"><input type="radio" name="q10" id="q10c" value="0"><label for="q10c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você sabe qual o faturamento mínimo que precisa para o negócio funcionar na Europa?</div><div class="options"><div class="opt"><input type="radio" name="q11" id="q11a" value="2"><label for="q11a">Sim</label></div><div class="opt"><input type="radio" name="q11" id="q11b" value="1"><label for="q11b">Parcialmente</label></div><div class="opt"><input type="radio" name="q11" id="q11c" value="0"><label for="q11c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você tem reserva ou runway para sustentar 3 a 6 meses sem novos clientes?</div><div class="options"><div class="opt"><input type="radio" name="q12" id="q12a" value="2"><label for="q12a">Sim</label></div><div class="opt"><input type="radio" name="q12" id="q12b" value="1"><label for="q12b">Parcialmente</label></div><div class="opt"><input type="radio" name="q12" id="q12c" value="0"><label for="q12c">Não</label></div></div></div>
+      </div>
+
+      <!-- Dimensão 5 -->
+      <div class="dimension">
+        <div class="dim-label">05 / Presença</div>
+        <div class="dim-title">Visibilidade e autoridade</div>
+        <div class="question"><div class="q-text">Você tem presença digital ativa — publicando com consistência em pelo menos um canal?</div><div class="options"><div class="opt"><input type="radio" name="q13" id="q13a" value="2"><label for="q13a">Sim</label></div><div class="opt"><input type="radio" name="q13" id="q13b" value="1"><label for="q13b">Parcialmente</label></div><div class="opt"><input type="radio" name="q13" id="q13c" value="0"><label for="q13c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você tem conteúdo publicado que demonstra autoridade no que você faz?</div><div class="options"><div class="opt"><input type="radio" name="q14" id="q14a" value="2"><label for="q14a">Sim</label></div><div class="opt"><input type="radio" name="q14" id="q14b" value="1"><label for="q14b">Parcialmente</label></div><div class="opt"><input type="radio" name="q14" id="q14c" value="0"><label for="q14c">Não</label></div></div></div>
+        <div class="question"><div class="q-text">Você tem depoimentos ou casos de resultado documentados que pode usar como prova?</div><div class="options"><div class="opt"><input type="radio" name="q15" id="q15a" value="2"><label for="q15a">Sim</label></div><div class="opt"><input type="radio" name="q15" id="q15b" value="1"><label for="q15b">Parcialmente</label></div><div class="opt"><input type="radio" name="q15" id="q15c" value="0"><label for="q15c">Não</label></div></div></div>
+      </div>
+
+      <div class="btn-wrap"><button type="submit">Ver meu diagnóstico</button></div>
+    </form>
+  </div>
+
+  <!-- Resultado -->
+  <div id="resultado">
+    <div class="header">
+      <div class="label">Seu Diagnóstico</div>
+      <h1>Aqui está o que <em>os números dizem</em></h1>
+    </div>
+
+    <div class="score-box">
+      <div class="score-num" id="score-display">0</div>
+      <div class="score-max">de 30 pontos</div>
+      <div class="score-label" id="score-label"></div>
+      <div class="score-msg" id="score-msg"></div>
+    </div>
+
+    <div class="breakdown">
+      <h3>Por dimensão</h3>
+      <div class="bar-row"><div class="bar-name">Clareza da oferta</div><div class="bar-track"><div class="bar-fill" id="bar1" style="width:0%"></div></div><div class="bar-val" id="val1">0/6</div></div>
+      <div class="bar-row"><div class="bar-name">Estrutura operacional</div><div class="bar-track"><div class="bar-fill" id="bar2" style="width:0%"></div></div><div class="bar-val" id="val2">0/6</div></div>
+      <div class="bar-row"><div class="bar-name">Contexto europeu</div><div class="bar-track"><div class="bar-fill" id="bar3" style="width:0%"></div></div><div class="bar-val" id="val3">0/6</div></div>
+      <div class="bar-row"><div class="bar-name">Saúde financeira</div><div class="bar-track"><div class="bar-fill" id="bar4" style="width:0%"></div></div><div class="bar-val" id="val4">0/6</div></div>
+      <div class="bar-row"><div class="bar-name">Presença digital</div><div class="bar-track"><div class="bar-fill" id="bar5" style="width:0%"></div></div><div class="bar-val" id="val5">0/6</div></div>
+    </div>
+
+    <div class="cta-box">
+      <p>Quer entender exatamente o que ajustar — e por onde começar?</p>
+      <a href="#">Agendar uma call de diagnóstico</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('form-quiz').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const vals = {};
+  let total = 0;
+  const dims = [[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]];
+  const dimScores = [];
+
+  for (let d = 0; d < dims.length; d++) {
+    let ds = 0;
+    for (let q of dims[d]) {
+      const r = document.querySelector(`input[name="q${q}"]:checked`);
+      const v = r ? parseInt(r.value) : 0;
+      ds += v; total += v;
+    }
+    dimScores.push(ds);
+  }
+
+  // Show results
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('score-display').textContent = total;
+
+  const labels = [
+    [0,10, 'Base em construção', 'Antes de entrar no mercado europeu, o foco precisa ser estrutura. Oferta clara, operação documentada e caixa previsível são os pilares — sem eles, a expansão fica cara e lenta. O programa foi desenhado para isso.'],
+    [11,18, 'Em desenvolvimento', 'Algumas peças já estão no lugar. O trabalho agora é identificar onde estão os gargalos específicos e corrigir antes de escalar. Com os ajustes certos, a entrada no mercado europeu pode acontecer mais rápido do que você imagina.'],
+    [19,24, 'Quase pronta', 'A estrutura está boa. O que falta são ajustes pontuais — geralmente posicionamento para o contexto europeu e consolidação da presença digital. Você está perto.'],
+    [25,30, 'Pronta para o mercado europeu', 'Você tem o que precisa para começar. O próximo passo não é preparação — é execução. A questão agora é estratégia de entrada, não base.']
+  ];
+
+  for (let [min, max, label, msg] of labels) {
+    if (total >= min && total <= max) {
+      document.getElementById('score-label').textContent = label;
+      document.getElementById('score-msg').textContent = msg;
+      break;
+    }
+  }
+
+  dimScores.forEach((s, i) => {
+    const pct = (s / 6) * 100;
+    document.getElementById(`bar${i+1}`).style.width = pct + '%';
+    document.getElementById(`val${i+1}`).textContent = `${s}/6`;
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>

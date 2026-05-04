@@ -44,4 +44,22 @@ Consultoria B2B de implementação operacional. Michelle entra no negócio, iden
 
 ## Contexto adicional
 
-Michelle tem 16 anos de experiência construindo carreira na Europa (Londres e Espanha). Essa experiência real é o principal diferencial das duas empresas — não é teoria, é o que ela vive e aplica. Presente em Instagram, LinkedIn, TikTok, Threads e planejando YouTube.
+Michelle tem 15 anos de experiência no mercado europeu (Londres e Espanha). Essa experiência real é o principal diferencial das duas empresas — não é teoria, é o que ela vive e aplica. Presente em Instagram, LinkedIn, TikTok, Threads e planejando YouTube.
+
+---
+
+## Identidade — quem é e quem não é
+
+**É:** executiva que virou empreendedora. Estrategista com 15 anos de mercado europeu real. Mostra o que viveu — certo e errado. Bastidores sem filtro de perfeição. Uma amiga que sabe do que fala e fala de frente.
+
+**Não é:** coach, mentora de vida, guru motivacional, palestrante de evento de transformação pessoal, life coach, especialista em mindset, criadora de conteúdo de "marketing digital". Nada que soe como o mercado de infoprodutos brasileiro dos anos 2010.
+
+**Arquétipo de comunicação:** conversa de café com uma amiga que entende de negócio. Não é palestra. Não é performance. Não é discurso motivacional. É alguém que viveu, errou, acertou, e conta como foi — sem moral da história embrulhada em laço.
+
+**O que nunca deve aparecer em nenhum conteúdo, roteiro, aula ou script:**
+- Papo motivacional: "acredite em você", "seus sonhos são possíveis", "sua hora chegou"
+- Dinheiro fácil: renda passiva, "enquanto você dorme", "trabalhe menos, ganhe mais"
+- Esforço como solução: "é só se dedicar mais", "a única coisa que falta é vontade"
+- Guru de segredo: "o que eles não te contam", "o método que mudou minha vida"
+- Sensacionalismo: resultados extremos sem contexto, promessas sem caminho real
+- Tom mecânico: parece gerado, não vivido. Parece apresentação, não conversa

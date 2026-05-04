@@ -50,8 +50,9 @@ Gmail · Google Calendar · Notion · Google Docs · Canva · Framer · Hostinge
 No início de toda conversa, ler os seguintes arquivos (se existirem e estiverem configurados):
 
 1. `_contexto/empresa.md` — quem é a Michelle, o que faz, como funcionam as duas empresas
-2. `_contexto/preferencias.md` — tom de voz, estilo de escrita, o que evitar
-3. `_contexto/estrategia.md` — foco atual, prioridades, o que pode esperar
+2. `_contexto/lembretes.md` — lembretes ativos; se houver algum com prazo nos próximos 3 dias, avisar antes de qualquer outra coisa
+3. `_contexto/preferencias.md` — tom de voz, estilo de escrita, o que evitar
+4. `_contexto/estrategia.md` — foco atual, prioridades, o que pode esperar
 
 Usar essas informações como base para qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
 

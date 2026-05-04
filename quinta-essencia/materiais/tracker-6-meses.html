@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracker do Programa — Quinta Essência</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --terra: #6B4629; --bosque: #3E5936; --pedra: #BDA78D;
+    --linho: #E4DDD0; --vinho: #541138; --preto: #0A0A0A; --off: #F5F0E8;
+  }
+  body { background: var(--preto); color: var(--off); font-family: 'Raleway', sans-serif; font-weight: 300; line-height: 1.7; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 60px 24px 100px; }
+
+  /* Header */
+  .logo { font-family: 'Playfair Display', serif; font-size: 13px; text-align: center; margin-bottom: 48px; letter-spacing: 2px; }
+  .logo em { font-style: italic; color: var(--pedra); }
+  .logo span { font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 7px; text-transform: uppercase; font-size: 11px; }
+  .label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pedra); margin-bottom: 16px; text-align: center; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(26px, 4vw, 40px); text-align: center; margin-bottom: 8px; }
+  h1 em { font-style: italic; color: var(--pedra); }
+  .sub { text-align: center; font-size: 14px; color: #888; margin-bottom: 48px; }
+
+  /* Barra de progresso geral */
+  .progress-wrap { margin-bottom: 48px; }
+  .progress-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .progress-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #555; }
+  .progress-pct { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--pedra); }
+  .progress-track { height: 2px; background: #222; }
+  .progress-fill { height: 2px; background: var(--terra); transition: width 0.4s ease; }
+
+  /* Meses */
+  .months { display: grid; gap: 24px; }
+  .month-card { border: 1px solid #222; }
+  .month-card.active { border-color: var(--terra); }
+  .month-card.done { border-color: #333; opacity: 0.7; }
+
+  .month-header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #222; cursor: pointer; }
+  .month-num { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); min-width: 60px; }
+  .month-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--pedra); flex: 1; }
+  .month-badge { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #555; }
+  .month-badge.done { color: var(--bosque); }
+  .month-toggle { font-size: 18px; color: #444; transition: transform 0.2s; }
+  .month-toggle.open { transform: rotate(180deg); }
+
+  .month-body { padding: 24px; display: none; }
+  .month-body.open { display: block; }
+
+  .focus { font-size: 14px; color: #888; margin-bottom: 20px; padding-left: 16px; border-left: 2px solid var(--terra); }
+
+  /* Milestones */
+  .milestone { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #1a1a1a; }
+  .milestone:last-child { border-bottom: none; }
+  .milestone input[type="checkbox"] { display: none; }
+  .milestone label { display: flex; align-items: flex-start; gap: 14px; cursor: pointer; width: 100%; }
+  .cb-box { width: 18px; height: 18px; border: 1px solid #333; flex-shrink: 0; margin-top: 2px; position: relative; transition: all 0.2s; }
+  .milestone input:checked ~ label .cb-box,
+  .milestone label.checked .cb-box { background: var(--terra); border-color: var(--terra); }
+  .milestone input:checked ~ label .cb-box::after,
+  .milestone label.checked .cb-box::after { content: '✓'; position: absolute; top: -1px; left: 2px; font-size: 12px; color: var(--off); }
+  .m-text { font-size: 14px; flex: 1; }
+  .milestone input:checked ~ label .m-text { color: #555; text-decoration: line-through; }
+
+  /* Notas */
+  .notes-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: #444; margin-top: 20px; margin-bottom: 8px; }
+  textarea { width: 100%; background: #0f0f0f; border: 1px solid #222; color: var(--off); font-family: 'Raleway', sans-serif; font-size: 14px; font-weight: 300; padding: 14px; resize: vertical; min-height: 80px; }
+  textarea:focus { outline: none; border-color: var(--terra); }
+  textarea::placeholder { color: #444; }
+
+  /* Save */
+  .save-bar { display: flex; justify-content: flex-end; margin-top: 32px; }
+  .save-btn { background: none; border: 1px solid var(--terra); color: var(--terra); padding: 12px 32px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; }
+  .save-btn:hover { background: var(--terra); color: var(--off); }
+  .save-note { font-family: 'DM Mono', monospace; font-size: 10px; color: #444; margin-top: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo"><em>a</em> Quinta <span>ESSÊNCIA</span></div>
+  <div class="label">Tracker do Programa</div>
+  <h1>Seis meses. <em>Uma transformação.</em></h1>
+  <p class="sub">Acompanhe seu progresso mês a mês no programa.</p>
+
+  <div class="progress-wrap">
+    <div class="progress-header">
+      <span class="progress-title">Progresso geral</span>
+      <span class="progress-pct" id="pct-label">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-bar" style="width:0%"></div></div>
+  </div>
+
+  <div class="months" id="months-container">
+
+    <!-- Mês 1 -->
+    <div class="month-card" data-month="1">
+      <div class="month-header" onclick="toggleMonth(1)">
+        <div class="month-num">Mês 01</div>
+        <div class="month-title">Diagnóstico e clareza</div>
+        <div class="month-badge" id="badge-1">0/4</div>
+        <div class="month-toggle" id="toggle-1">▾</div>
+      </div>
+      <div class="month-body" id="body-1">
+        <div class="focus">Entender o ponto de partida: oferta, público, posicionamento e o que precisa ajustar antes de qualquer movimento no mercado europeu.</div>
+        <div class="milestone"><input type="checkbox" id="m1-1" onchange="updateProgress()"><label for="m1-1"><div class="cb-box"></div><span class="m-text">Sessão de kick-off realizada e combinados definidos</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m1-2" onchange="updateProgress()"><label for="m1-2"><div class="cb-box"></div><span class="m-text">Diagnóstico do negócio atual concluído</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m1-3" onchange="updateProgress()"><label for="m1-3"><div class="cb-box"></div><span class="m-text">Oferta principal revisada e reescrita com clareza</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m1-4" onchange="updateProgress()"><label for="m1-4"><div class="cb-box"></div><span class="m-text">Público-alvo no contexto europeu definido</span></label></div>
+        <div class="notes-label">Notas do mês 01</div>
+        <textarea placeholder="O que funcionou, o que travou, decisões importantes..."></textarea>
+      </div>
+    </div>
+
+    <!-- Mês 2 -->
+    <div class="month-card" data-month="2">
+      <div class="month-header" onclick="toggleMonth(2)">
+        <div class="month-num">Mês 02</div>
+        <div class="month-title">Estrutura operacional</div>
+        <div class="month-badge" id="badge-2">0/4</div>
+        <div class="month-toggle" id="toggle-2">▾</div>
+      </div>
+      <div class="month-body" id="body-2">
+        <div class="focus">Montar a espinha dorsal da operação: processos documentados, onboarding de clientes, entrega padronizada.</div>
+        <div class="milestone"><input type="checkbox" id="m2-1" onchange="updateProgress()"><label for="m2-1"><div class="cb-box"></div><span class="m-text">Processo de onboarding de clientes documentado</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m2-2" onchange="updateProgress()"><label for="m2-2"><div class="cb-box"></div><span class="m-text">Processo de entrega documentado (passo a passo)</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m2-3" onchange="updateProgress()"><label for="m2-3"><div class="cb-box"></div><span class="m-text">Ferramentas de gestão configuradas (Notion, CRM ou equivalente)</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m2-4" onchange="updateProgress()"><label for="m2-4"><div class="cb-box"></div><span class="m-text">Comunicação com clientes padronizada (templates de e-mail/WhatsApp)</span></label></div>
+        <div class="notes-label">Notas do mês 02</div>
+        <textarea placeholder="O que funcionou, o que travou, decisões importantes..."></textarea>
+      </div>
+    </div>
+
+    <!-- Mês 3 -->
+    <div class="month-card" data-month="3">
+      <div class="month-header" onclick="toggleMonth(3)">
+        <div class="month-num">Mês 03</div>
+        <div class="month-title">Posicionamento europeu</div>
+        <div class="month-badge" id="badge-3">0/4</div>
+        <div class="month-toggle" id="toggle-3">▾</div>
+      </div>
+      <div class="month-body" id="body-3">
+        <div class="focus">Adaptar comunicação, precificação e posicionamento para o contexto europeu. Entender o que muda na prática.</div>
+        <div class="milestone"><input type="checkbox" id="m3-1" onchange="updateProgress()"><label for="m3-1"><div class="cb-box"></div><span class="m-text">Análise do mercado europeu no nicho feita</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m3-2" onchange="updateProgress()"><label for="m3-2"><div class="cb-box"></div><span class="m-text">Comunicação da oferta adaptada para o contexto europeu</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m3-3" onchange="updateProgress()"><label for="m3-3"><div class="cb-box"></div><span class="m-text">Precificação revisada para o mercado europeu</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m3-4" onchange="updateProgress()"><label for="m3-4"><div class="cb-box"></div><span class="m-text">Primeiros pontos de contato com o mercado europeu iniciados</span></label></div>
+        <div class="notes-label">Notas do mês 03</div>
+        <textarea placeholder="O que funcionou, o que travou, decisões importantes..."></textarea>
+      </div>
+    </div>
+
+    <!-- Mês 4 -->
+    <div class="month-card" data-month="4">
+      <div class="month-header" onclick="toggleMonth(4)">
+        <div class="month-num">Mês 04</div>
+        <div class="month-title">Primeiras vendas na Europa</div>
+        <div class="month-badge" id="badge-4">0/4</div>
+        <div class="month-toggle" id="toggle-4">▾</div>
+      </div>
+      <div class="month-body" id="body-4">
+        <div class="focus">Sair do planejamento e partir para a execução. Contatos reais, propostas reais, primeiros clientes europeus.</div>
+        <div class="milestone"><input type="checkbox" id="m4-1" onchange="updateProgress()"><label for="m4-1"><div class="cb-box"></div><span class="m-text">Estratégia de aquisição de clientes europeus definida</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m4-2" onchange="updateProgress()"><label for="m4-2"><div class="cb-box"></div><span class="m-text">Primeiras 5 conversas com potenciais clientes europeus realizadas</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m4-3" onchange="updateProgress()"><label for="m4-3"><div class="cb-box"></div><span class="m-text">Primeira proposta ou oferta enviada para o mercado europeu</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m4-4" onchange="updateProgress()"><label for="m4-4"><div class="cb-box"></div><span class="m-text">Pelo menos um cliente europeu fechado ou em negociação avançada</span></label></div>
+        <div class="notes-label">Notas do mês 04</div>
+        <textarea placeholder="O que funcionou, o que travou, decisões importantes..."></textarea>
+      </div>
+    </div>
+
+    <!-- Mês 5 -->
+    <div class="month-card" data-month="5">
+      <div class="month-header" onclick="toggleMonth(5)">
+        <div class="month-num">Mês 05</div>
+        <div class="month-title">Ajuste e otimização</div>
+        <div class="month-badge" id="badge-5">0/4</div>
+        <div class="month-toggle" id="toggle-5">▾</div>
+      </div>
+      <div class="month-body" id="body-5">
+        <div class="focus">Analisar o que funcionou nas primeiras vendas, corrigir o que não funcionou e preparar para escalar.</div>
+        <div class="milestone"><input type="checkbox" id="m5-1" onchange="updateProgress()"><label for="m5-1"><div class="cb-box"></div><span class="m-text">Análise das primeiras conversas de venda feita (o que funcionou, o que não funcionou)</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m5-2" onchange="updateProgress()"><label for="m5-2"><div class="cb-box"></div><span class="m-text">Oferta ajustada com base no feedback real do mercado</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m5-3" onchange="updateProgress()"><label for="m5-3"><div class="cb-box"></div><span class="m-text">Canal de aquisição principal identificado e em execução</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m5-4" onchange="updateProgress()"><label for="m5-4"><div class="cb-box"></div><span class="m-text">Meta financeira para o próximo trimestre definida</span></label></div>
+        <div class="notes-label">Notas do mês 05</div>
+        <textarea placeholder="O que funcionou, o que travou, decisões importantes..."></textarea>
+      </div>
+    </div>
+
+    <!-- Mês 6 -->
+    <div class="month-card" data-month="6">
+      <div class="month-header" onclick="toggleMonth(6)">
+        <div class="month-num">Mês 06</div>
+        <div class="month-title">Escala e previsibilidade</div>
+        <div class="month-badge" id="badge-6">0/4</div>
+        <div class="month-toggle" id="toggle-6">▾</div>
+      </div>
+      <div class="month-body" id="body-6">
+        <div class="focus">Fechar o programa com caixa previsível, operação funcionando e clareza sobre o próximo passo sem depender de ajuda externa.</div>
+        <div class="milestone"><input type="checkbox" id="m6-1" onchange="updateProgress()"><label for="m6-1"><div class="cb-box"></div><span class="m-text">Pelo menos 2 clientes europeus ativos ou confirmados</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m6-2" onchange="updateProgress()"><label for="m6-2"><div class="cb-box"></div><span class="m-text">Operação funcionando sem improvisos — processos claros e seguidos</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m6-3" onchange="updateProgress()"><label for="m6-3"><div class="cb-box"></div><span class="m-text">Sessão de encerramento e revisão completa realizada</span></label></div>
+        <div class="milestone"><input type="checkbox" id="m6-4" onchange="updateProgress()"><label for="m6-4"><div class="cb-box"></div><span class="m-text">Próximos 90 dias planejados de forma autônoma</span></label></div>
+        <div class="notes-label">Notas do mês 06</div>
+        <textarea placeholder="O que funcionou, o que travou, decisões importantes..."></textarea>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="save-bar"><button class="save-btn" onclick="saveData()">Salvar progresso</button></div>
+  <div class="save-note">Os dados são salvos localmente neste navegador.</div>
+</div>
+
+<script>
+function toggleMonth(n) {
+  const body = document.getElementById(`body-${n}`);
+  const toggle = document.getElementById(`toggle-${n}`);
+  body.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
+function updateProgress() {
+  const total = 24;
+  let checked = 0;
+  for (let m = 1; m <= 6; m++) {
+    let mc = 0;
+    for (let i = 1; i <= 4; i++) {
+      const cb = document.getElementById(`m${m}-${i}`);
+      if (cb && cb.checked) { checked++; mc++; }
+    }
+    document.getElementById(`badge-${m}`).textContent = `${mc}/4`;
+    const card = document.querySelector(`.month-card[data-month="${m}"]`);
+    if (mc === 4) { card.classList.add('done'); card.classList.remove('active'); }
+    else if (mc > 0) { card.classList.add('active'); card.classList.remove('done'); }
+    else { card.classList.remove('active','done'); }
+  }
+  const pct = Math.round((checked / total) * 100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('pct-label').textContent = pct + '%';
+}
+
+function saveData() {
+  const state = {};
+  for (let m = 1; m <= 6; m++) {
+    for (let i = 1; i <= 4; i++) {
+      const id = `m${m}-${i}`;
+      const cb = document.getElementById(id);
+      if (cb) state[id] = cb.checked;
+    }
+    const ta = document.querySelector(`#body-${m} textarea`);
+    if (ta) state[`notes-${m}`] = ta.value;
+  }
+  localStorage.setItem('qe-tracker', JSON.stringify(state));
+  const btn = document.querySelector('.save-btn');
+  btn.textContent = 'Salvo ✓';
+  setTimeout(() => btn.textContent = 'Salvar progresso', 2000);
+}
+
+// Load saved data
+const saved = JSON.parse(localStorage.getItem('qe-tracker') || '{}');
+Object.keys(saved).forEach(k => {
+  if (k.startsWith('m')) {
+    const cb = document.getElementById(k);
+    if (cb) cb.checked = saved[k];
+  } else if (k.startsWith('notes')) {
+    const n = k.split('-')[1];
+    const ta = document.querySelector(`#body-${n} textarea`);
+    if (ta) ta.value = saved[k];
+  }
+});
+updateProgress();
+</script>
+</body>
+</html>

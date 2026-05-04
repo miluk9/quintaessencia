@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist de Implementação — Quinta Essência</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --terra: #6B4629; --bosque: #3E5936; --pedra: #BDA78D;
+    --linho: #E4DDD0; --preto: #0A0A0A; --off: #F5F0E8;
+  }
+  body { background: var(--preto); color: var(--off); font-family: 'Raleway', sans-serif; font-weight: 300; line-height: 1.7; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 60px 24px 100px; }
+
+  .logo { font-family: 'Playfair Display', serif; font-size: 13px; text-align: center; margin-bottom: 48px; letter-spacing: 2px; }
+  .logo em { font-style: italic; color: var(--pedra); }
+  .logo span { font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 7px; text-transform: uppercase; font-size: 11px; }
+
+  .header { margin-bottom: 48px; }
+  .label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pedra); margin-bottom: 16px; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(26px, 4vw, 42px); line-height: 1.2; margin-bottom: 12px; }
+  h1 em { font-style: italic; color: var(--pedra); }
+  .sub { font-size: 14px; color: #888; }
+
+  /* Progress */
+  .prog-row { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+  .prog-track { flex: 1; height: 2px; background: #222; }
+  .prog-fill { height: 2px; background: var(--terra); transition: width 0.3s; }
+  .prog-count { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--pedra); white-space: nowrap; }
+
+  /* Sections */
+  .section { margin-bottom: 40px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #222; }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); }
+  .section-title { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--pedra); }
+
+  /* Items */
+  .item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid #111; }
+  .item:last-child { border-bottom: none; }
+  .item input[type="checkbox"] { display: none; }
+  .item label { display: flex; align-items: flex-start; gap: 14px; cursor: pointer; width: 100%; }
+  .cb { width: 18px; height: 18px; border: 1px solid #333; flex-shrink: 0; margin-top: 2px; position: relative; transition: all 0.15s; }
+  .item input:checked + label .cb { background: var(--terra); border-color: var(--terra); }
+  .item input:checked + label .cb::after { content: '✓'; position: absolute; top: -1px; left: 2px; font-size: 12px; color: var(--off); }
+  .item-text { flex: 1; font-size: 14px; }
+  .item input:checked + label .item-text { color: #555; text-decoration: line-through; }
+  .item-note { font-family: 'DM Mono', monospace; font-size: 10px; color: #444; margin-top: 3px; display: block; }
+  .item input:checked + label .item-note { color: #333; }
+
+  /* Print */
+  .actions { display: flex; gap: 12px; margin-top: 40px; }
+  .btn { padding: 14px 28px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; }
+  .btn-primary { background: var(--terra); color: var(--off); border: none; }
+  .btn-secondary { background: none; border: 1px solid #333; color: #888; }
+  .btn-secondary:hover { border-color: var(--terra); color: var(--off); }
+
+  @media print {
+    body { background: white; color: #111; }
+    .actions { display: none; }
+    .cb { border-color: #999; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo"><em>a</em> Quinta <span>ESSÊNCIA</span></div>
+
+  <div class="header">
+    <div class="label">Checklist de Implementação</div>
+    <h1>O que você precisa<br><em>montar antes de vender.</em></h1>
+    <p class="sub">Use esse checklist para garantir que a estrutura básica está no lugar antes de focar em aquisição de clientes no mercado europeu.</p>
+  </div>
+
+  <div class="prog-row">
+    <div class="prog-track"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+    <div class="prog-count" id="count">0 / 28</div>
+  </div>
+
+  <!-- Oferta -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Oferta clara</div>
+    </div>
+    <div class="item"><input type="checkbox" id="i1" onchange="update()"><label for="i1"><div class="cb"></div><div><span class="item-text">Oferta descrita em 1 frase: resultado + público + mecanismo</span><span class="item-note">Sem jargão. Se a sua mãe não entende, reescreva.</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i2" onchange="update()"><label for="i2"><div class="cb"></div><div><span class="item-text">Preço definido e justificado</span><span class="item-note">Inclui o valor em euros, não só em reais.</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i3" onchange="update()"><label for="i3"><div class="cb"></div><div><span class="item-text">Entregáveis listados (o que a cliente recebe, como e quando)</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i4" onchange="update()"><label for="i4"><div class="cb"></div><div><span class="item-text">Diferenciais escritos com base em experiência real, não teoria</span></div></label></div>
+  </div>
+
+  <!-- Operação -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Operação documentada</div>
+    </div>
+    <div class="item"><input type="checkbox" id="i5" onchange="update()"><label for="i5"><div class="cb"></div><div><span class="item-text">Fluxo de onboarding escrito (o que acontece assim que alguém compra)</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i6" onchange="update()"><label for="i6"><div class="cb"></div><div><span class="item-text">Processo de entrega documentado — sem depender de memória</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i7" onchange="update()"><label for="i7"><div class="cb"></div><div><span class="item-text">Formulário de briefing/diagnóstico da cliente criado</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i8" onchange="update()"><label for="i8"><div class="cb"></div><div><span class="item-text">Templates de comunicação: boas-vindas, follow-up, encerramento</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i9" onchange="update()"><label for="i9"><div class="cb"></div><div><span class="item-text">Ferramenta de gestão configurada (Notion, planilha ou equivalente)</span></div></label></div>
+  </div>
+
+  <!-- Vendas -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Estrutura de vendas</div>
+    </div>
+    <div class="item"><input type="checkbox" id="i10" onchange="update()"><label for="i10"><div class="cb"></div><div><span class="item-text">Roteiro da call de descoberta escrito</span><span class="item-note">Perguntas principais, o que escutar, como apresentar a proposta.</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i11" onchange="update()"><label for="i11"><div class="cb"></div><div><span class="item-text">Template de proposta pronto</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i12" onchange="update()"><label for="i12"><div class="cb"></div><div><span class="item-text">Link de pagamento funcionando (Stripe ou equivalente)</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i13" onchange="update()"><label for="i13"><div class="cb"></div><div><span class="item-text">Contrato ou termo de serviço básico criado</span></div></label></div>
+  </div>
+
+  <!-- Presença -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Presença e autoridade</div>
+    </div>
+    <div class="item"><input type="checkbox" id="i14" onchange="update()"><label for="i14"><div class="cb"></div><div><span class="item-text">Bio do Instagram/LinkedIn atualizada com posicionamento claro</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i15" onchange="update()"><label for="i15"><div class="cb"></div><div><span class="item-text">Pelo menos 3 posts publicados que demonstram autoridade no tema</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i16" onchange="update()"><label for="i16"><div class="cb"></div><div><span class="item-text">Depoimento(s) de resultado coletados e publicados</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i17" onchange="update()"><label for="i17"><div class="cb"></div><div><span class="item-text">Frequência mínima de publicação definida e mantida por 4 semanas</span></div></label></div>
+  </div>
+
+  <!-- Mercado europeu -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Adaptação ao mercado europeu</div>
+    </div>
+    <div class="item"><input type="checkbox" id="i18" onchange="update()"><label for="i18"><div class="cb"></div><div><span class="item-text">Pesquisa básica feita: como o meu público compra serviços na Europa</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i19" onchange="update()"><label for="i19"><div class="cb"></div><div><span class="item-text">Diferenças culturais principais identificadas e aplicadas na comunicação</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i20" onchange="update()"><label for="i20"><div class="cb"></div><div><span class="item-text">Precificação em euros definida e coerente com o mercado local</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i21" onchange="update()"><label for="i21"><div class="cb"></div><div><span class="item-text">Canais de aquisição testados: onde meu público europeu está?</span></div></label></div>
+  </div>
+
+  <!-- Financeiro -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Base financeira</div>
+    </div>
+    <div class="item"><input type="checkbox" id="i22" onchange="update()"><label for="i22"><div class="cb"></div><div><span class="item-text">Custo mínimo mensal para operar calculado</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i23" onchange="update()"><label for="i23"><div class="cb"></div><div><span class="item-text">Meta de faturamento para os próximos 3 meses definida</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i24" onchange="update()"><label for="i24"><div class="cb"></div><div><span class="item-text">Controle financeiro básico ativo (separação pessoal/empresa)</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i25" onchange="update()"><label for="i25"><div class="cb"></div><div><span class="item-text">Runway calculado: quanto tempo tem sem novos clientes?</span></div></label></div>
+  </div>
+
+  <!-- Mindset -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Comprometimento</div>
+    </div>
+    <div class="item"><input type="checkbox" id="i26" onchange="update()"><label for="i26"><div class="cb"></div><div><span class="item-text">Horas semanais dedicadas ao negócio definidas e protegidas</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i27" onchange="update()"><label for="i27"><div class="cb"></div><div><span class="item-text">Prioridade da semana definida todo domingo (uma ação de impacto)</span></div></label></div>
+    <div class="item"><input type="checkbox" id="i28" onchange="update()"><label for="i28"><div class="cb"></div><div><span class="item-text">Primeira ação real de aquisição de cliente europeu feita — qualquer que seja</span></div></label></div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="saveData()">Salvar progresso</button>
+    <button class="btn btn-secondary" onclick="window.print()">Imprimir</button>
+  </div>
+</div>
+
+<script>
+const TOTAL = 28;
+function update() {
+  let done = 0;
+  for (let i = 1; i <= TOTAL; i++) {
+    const cb = document.getElementById(`i${i}`);
+    if (cb && cb.checked) done++;
+  }
+  const pct = Math.round((done / TOTAL) * 100);
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('count').textContent = `${done} / ${TOTAL}`;
+}
+function saveData() {
+  const s = {};
+  for (let i = 1; i <= TOTAL; i++) {
+    const cb = document.getElementById(`i${i}`);
+    if (cb) s[`i${i}`] = cb.checked;
+  }
+  localStorage.setItem('qe-checklist', JSON.stringify(s));
+  const btn = document.querySelector('.btn-primary');
+  btn.textContent = 'Salvo ✓';
+  setTimeout(() => btn.textContent = 'Salvar progresso', 2000);
+}
+const saved = JSON.parse(localStorage.getItem('qe-checklist') || '{}');
+Object.keys(saved).forEach(k => {
+  const cb = document.getElementById(k);
+  if (cb) cb.checked = saved[k];
+});
+update();
+</script>
+</body>
+</html>
