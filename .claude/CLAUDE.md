@@ -113,7 +113,19 @@ Audita e reescreve conteúdo para remover padrões de escrita de IA ("AI-isms").
 
 ---
 
-### 9. `/radar-concorrentes`
+### 9. `/radar-semanal`
+Pesquisa notícias quentes da semana nos nichos da Michelle — estratégias, IA e brasileiros fora.
+
+**Quando chamar:**
+- "Roda o radar semanal"
+- "Pesquisa o que saiu essa semana"
+- "Quero ver as notícias do nicho"
+
+**Resultado:** relatório salvo em `pesquisas/radar-YYYY-MM-DD.md`
+
+---
+
+### 10. `/radar-concorrentes`
 Pesquisa o que os concorrentes diretos e indiretos estão fazendo no Instagram.
 
 **Quando chamar:**
