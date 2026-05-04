@@ -518,6 +518,7 @@
 ├── <span class="folder">marketing/</span>          <span class="comment"># conteúdo e redes sociais</span><br>
 ├── <span class="folder">dados/</span>              <span class="comment"># drop zone para análise</span><br>
 ├── <span class="folder">templates/</span>          <span class="comment"># biblioteca de modelos</span><br>
+├── <span class="folder">pesquisas/</span>          <span class="comment"># radares semanais e de concorrentes</span><br>
 ├── <span class="highlight">CLAUDE.md</span>           <span class="comment"># configuração central</span><br>
 └── <span class="highlight">guia.html</span>           <span class="comment"># este arquivo</span>
         </div>
@@ -649,7 +650,7 @@
     <div class="act-header">
       <div class="act-number">03 — .claude/commands/</div>
       <h1 class="act-title">Skills e <em>Comandos</em></h1>
-      <p class="act-desc">29 skills ativos. Cada um é ativado digitando <code>/nome</code> no chat. Quando um skill existe, o Claude segue as instruções dele — não improvisa.</p>
+      <p class="act-desc">31 skills ativos. Cada um é ativado digitando <code>/nome</code> no chat. Quando um skill existe, o Claude segue as instruções dele — não improvisa.</p>
       <span class="act-path">.claude/commands/</span>
     </div>
 
@@ -816,6 +817,20 @@
       <div class="skill-card">
         <div class="skill-name">/prospectar-investimento</div>
         <div class="skill-desc">Detecta empresas recém-financiadas que precisam estruturar operação rapidamente.</div>
+        <span class="skill-tag tag-novo">Novo</span>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:32px;">🔍 Inteligência e Pesquisa — Novos</div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="skill-name">/radar-semanal</div>
+        <div class="skill-desc">Busca notícias quentes da semana nos 3 clusters do nicho: mercado europeu, estratégias de negócio e IA. Roda toda quinta-feira para comparar com a curadoria manual. Salva em pesquisas/</div>
+        <span class="skill-tag tag-novo">Novo</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-name">/radar-concorrentes</div>
+        <div class="skill-desc">Pesquisa o que os 15 concorrentes diretos e indiretos estão fazendo no Instagram — temas, formatos, lançamentos e posicionamento. Relatório separado por grupo. Salva em pesquisas/</div>
         <span class="skill-tag tag-novo">Novo</span>
       </div>
     </div>
