@@ -113,7 +113,19 @@ Audita e reescreve conteúdo para remover padrões de escrita de IA ("AI-isms").
 
 ---
 
-### 9. `/killer-scripter`
+### 9. `/radar-concorrentes`
+Pesquisa o que os concorrentes diretos e indiretos estão fazendo no Instagram.
+
+**Quando chamar:**
+- "Roda o radar de concorrentes"
+- "O que os concorrentes estão postando?"
+- "Pesquisa o que a [concorrente] tá fazendo"
+
+**Resultado:** relatório salvo em `pesquisas/concorrentes-YYYY-MM-DD.md`
+
+---
+
+### 10. `/killer-scripter`
 Escreve scripts de YouTube, Reels, Shorts e carousels que soam como conversa real e genuína.
 
 **Quando chamar:**
