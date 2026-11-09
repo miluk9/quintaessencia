@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analista Comercial no Claude | Essência Digital</title>
+<meta name="description" content="Um prompt para o Claude ler o seu CRM todo dia e dizer onde você está perdendo venda. Gratuito, da Essência Digital.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --terra: #6B4629; --bosque: #3E5936; --pedra: #BDA78D;
+    --linho: #E4DDD0; --vinho: #541138; --preto: #0A0A0A; --off: #F5F0E8;
+    --corpo: #aaaaaa; --linha: #222222; --caixa: #111111;
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body { background: var(--preto); color: var(--off); font-family: 'Raleway', sans-serif; font-weight: 300; line-height: 1.7; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 16px 96px; }
+  @media (min-width: 640px) { .wrap { padding: 80px 24px 120px; } }
+
+  .marca { display: flex; align-items: center; gap: 12px; margin-bottom: 64px; }
+  .marca .ponto { width: 28px; height: 28px; border-radius: 50%; background: var(--vinho); display: grid; place-items: center; }
+  .marca .ponto span { width: 6px; height: 6px; border-radius: 50%; background: var(--off); }
+  .marca .nome { font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.3em; text-transform: uppercase; font-size: 12px; color: var(--off); }
+
+  .label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pedra); margin-bottom: 20px; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: clamp(32px, 7vw, 56px); line-height: 1.15; margin-bottom: 28px; }
+  h1 em { font-style: italic; color: var(--pedra); }
+  h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(24px, 4.5vw, 32px); line-height: 1.25; margin-bottom: 20px; }
+  h3 { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 22px; color: var(--pedra); margin-bottom: 12px; }
+  p { font-size: 16px; color: var(--corpo); margin-bottom: 16px; }
+  p strong { color: var(--off); font-weight: 500; }
+  section { margin-top: 80px; }
+
+  .intro p { font-size: 17px; }
+
+  .passos { list-style: none; counter-reset: passo; display: grid; gap: 24px; }
+  .passos li { counter-increment: passo; display: grid; grid-template-columns: 48px 1fr; gap: 8px; border-top: 1px solid var(--linha); padding-top: 20px; }
+  .passos li::before { content: counter(passo, decimal-leading-zero) " /"; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--terra); padding-top: 3px; }
+  .passos strong { display: block; color: var(--off); font-weight: 500; margin-bottom: 4px; }
+  .passos p { margin: 0; font-size: 15px; }
+
+  .prompt-box { border: 1px solid var(--linha); background: var(--caixa); margin-top: 24px; }
+  .prompt-topo { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--linha); }
+  .prompt-topo .label { margin: 0; }
+  .copiar { background: var(--terra); color: var(--off); border: 0; font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; padding: 10px 16px; cursor: pointer; }
+  .copiar:hover { background: #7d5432; }
+  .copiar:focus-visible { outline: 2px solid var(--pedra); outline-offset: 2px; }
+  pre { white-space: pre-wrap; word-wrap: break-word; font-family: 'DM Mono', monospace; font-size: 13px; line-height: 1.75; color: #d6cfc3; padding: 20px 16px; }
+  @media (min-width: 640px) { pre { padding: 28px; font-size: 13.5px; } }
+
+  .aviso { border-left: 3px solid var(--terra); padding: 4px 0 4px 20px; margin-top: 28px; }
+  .aviso p { margin-bottom: 8px; }
+
+  .cta { margin-top: 96px; border: 1px solid var(--linha); padding: 40px 20px; }
+  @media (min-width: 640px) { .cta { padding: 56px 48px; } }
+  .botao { display: inline-block; margin-top: 16px; background: var(--terra); color: var(--off); text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; padding: 18px 28px; }
+  .botao:hover { background: #7d5432; }
+  .botao:focus-visible { outline: 2px solid var(--pedra); outline-offset: 3px; }
+
+  footer { margin-top: 64px; border-top: 1px solid var(--linha); padding-top: 24px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #555; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="marca" aria-label="Essência Digital">
+    <div class="ponto"><span></span></div>
+    <div class="nome">Essência Digital</div>
+  </div>
+
+  <header class="intro">
+    <div class="label">Prompt gratuito / Comercial</div>
+    <h1>O seu CRM já sabe onde você está <em>perdendo venda.</em> Falta alguém ler.</h1>
+    <p>Negócio parado há três semanas que ninguém viu. Proposta enviada sem follow-up. Previsão do mês feita no olho. Na maioria das empresas, o problema não é falta de lead. É o que acontece com ele depois que entra.</p>
+    <p>Este prompt coloca o Claude pra ler o seu pipeline todo dia e te dizer, em números, onde agir. Com uma diferença que quase nenhum prompt desses tem: <strong>ele começa checando se os dados do seu CRM são confiáveis.</strong> Porque relatório bonito em cima de CRM desatualizado só te dá certeza errada.</p>
+  </header>
+
+  <section>
+    <h2>Como usar</h2>
+    <ol class="passos">
+      <li><div><strong>Conecte o seu CRM ao Claude</strong><p>No Claude, abra Conectores e procure o seu CRM: HubSpot, Pipedrive, Salesforce ou Kommo. Faça a conexão com a sua conta.</p></div></li>
+      <li><div><strong>Cole o prompt abaixo</strong><p>Troque o nome do CRM entre colchetes e envie. A primeira análise sai em poucos minutos.</p></div></li>
+      <li><div><strong>Deixe rodando sozinho</strong><p>Depois da primeira resposta, peça: "programa essa análise pra rodar todo dia útil às 9h". O Claude agenda e te entrega o resultado sem você pedir de novo.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>O prompt</h2>
+    <div class="prompt-box">
+      <div class="prompt-topo">
+        <div class="label">Analista comercial</div>
+        <button class="copiar" type="button" id="copiar">Copiar</button>
+      </div>
+<pre id="prompt">Quero que você atue como analista comercial da minha empresa, usando os dados do meu CRM ([HubSpot / Pipedrive / Salesforce / Kommo]).
+
+ANTES DE QUALQUER ANÁLISE, AUDITE OS DADOS:
+1. Quantos negócios em aberto estão sem valor, sem data prevista de fechamento ou sem responsável.
+2. Quantos não têm nenhuma atividade registrada nos últimos 14 dias.
+3. Se mais de 30% dos negócios tiverem dados incompletos, me avise logo no começo que a previsão não é confiável. Nunca invente números para preencher lacunas.
+
+DEPOIS, ANALISE O PIPELINE:
+4. Valor total em aberto e distribuição por etapa.
+5. Negócios parados: sem avançar de etapa ou sem atividade há mais tempo que a média daquela etapa. Liste com responsável, valor e dias parado.
+6. Previsão do mês, usando só negócios com valor e data preenchidos, ponderada pela probabilidade de cada etapa.
+7. Onde o funil mais perde: a etapa com a maior queda de conversão nos últimos 90 dias.
+8. Se houver mais de uma pessoa vendendo, compare por pessoa. Se for só eu, pule este item.
+9. Se você já fez esta análise antes, compare com a última e destaque o que mudou.
+
+NO FINAL, ENTREGUE:
+- Alerta de qualidade dos dados, em uma linha
+- Pipeline total e previsão do mês
+- Os 5 negócios que precisam de ação hoje, cada um com a ação concreta
+- O principal gargalo do funil, em uma frase
+- Uma pergunta que eu deveria fazer ao meu time esta semana
+
+Seja direto. Números e alertas, sem parágrafos longos.</pre>
+    </div>
+
+    <div class="aviso">
+      <p><strong>Se o alerta de dados vier vermelho, não é o prompt que está errado.</strong></p>
+      <p>É sinal de que o CRM não está sendo usado do jeito que deveria. Etapas que ninguém atualiza, negócio sem valor, follow-up que mora no WhatsApp de alguém. Nesse caso, a análise mais útil que o Claude pode te dar é exatamente essa: mostrar o tamanho do buraco.</p>
+    </div>
+  </section>
+
+  <section class="cta" id="diagnostico">
+    <div class="label">Diagnóstico operacional</div>
+    <h2>Quando o problema é a operação, prompt nenhum resolve sozinho.</h2>
+    <p>Na Essência Digital, eu entro no seu negócio, encontro onde a operação comercial está travando e implemento a estrutura: CRM organizado, processo comercial claro, funcionários digitais rodando análises como esta todo dia e o time treinado pra manter tudo funcionando sem depender de você.</p>
+    <p>O primeiro passo é um diagnóstico, sem custo. A gente olha a sua operação junto e você sai sabendo qual é o gargalo principal, mesmo que decida não seguir comigo.</p>
+    <!-- TROCAR: link de agendamento do diagnóstico (Calendly, formulário ou WhatsApp) -->
+    <a class="botao" href="#diagnostico">Quero o diagnóstico</a>
+  </section>
+
+  <footer>Essência Digital / Michelle Miluk</footer>
+
+</main>
+<script>
+  (function () {
+    var btn = document.getElementById('copiar');
+    var texto = document.getElementById('prompt').innerText;
+    function ok() { btn.textContent = 'Copiado'; setTimeout(function () { btn.textContent = 'Copiar'; }, 2000); }
+    function reserva() {
+      var t = document.createElement('textarea');
+      t.value = texto; t.setAttribute('readonly', ''); t.style.position = 'absolute'; t.style.left = '-9999px';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); ok(); } catch (e) { btn.textContent = 'Selecione e copie'; }
+      document.body.removeChild(t);
+    }
+    btn.addEventListener('click', function () {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(texto).then(ok, reserva);
+      } else { reserva(); }
+    });
+  })();
+</script>
+</body>
+</html>

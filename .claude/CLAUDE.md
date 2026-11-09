@@ -151,6 +151,20 @@ Escreve scripts de YouTube, Reels, Shorts e carousels que soam como conversa rea
 
 ---
 
+### 11. `/puxar-leads`
+Puxa leads da web com Firecrawl, filtra pelo ICP e devolve só as empresas que encaixam, com ângulo de abordagem. Foco em B2B europeu e RGPD.
+
+**Quando chamar:**
+- "Puxa leads de [segmento] em [cidade]"
+- "Monta uma lista de prospecção pra ED"
+- "Raspa esse diretório"
+
+**Pré-requisito:** Firecrawl instalado (plugin ou MCP) com chave gratuita
+
+**Resultado:** CSV + resumo salvos em `essencia-digital/prospeccao/`
+
+---
+
 ## Como usar
 
 Basta mencionar o que você quer. Claude vai entender quando chamar cada skill baseado na descrição.
