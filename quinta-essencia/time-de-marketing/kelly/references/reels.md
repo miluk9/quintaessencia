@@ -75,6 +75,8 @@ Na tela: [a palavra-chave escrita + o que aparece]
 
 ## Passo 3b · O mapa de cenas (direção de edição)
 
+**O mapa não muda nada do roteiro nem da legenda do post.** Ele usa a fala aprovada exatamente como está. Se, ao montar o mapa, uma frase parecer difícil de mostrar, anote em "Para decidir com você" e não reescreva.
+
 Depois do roteiro aprovado, transforme cada bloco em cenas. A ideia central: **o raciocínio da fala vira acontecimento na tela.** Quando a fala diz separar, comparar, organizar, escolher ou mostrar um antes e depois, essa ação acontece na imagem. É isso que a Editora de Vídeo vai executar.
 
 Divida a fala por **unidade de sentido** (uma ideia = uma cena), nunca por intervalo fixo de segundos.
@@ -110,7 +112,7 @@ Em um Reel de 40 a 60 segundos, use pelo menos 3 famílias **se o conteúdo pedi
 
 **Regras do mapa:**
 - **Um foco por vez.** Se tem print para ler, nada se mexe em volta.
-- **Texto na tela tem três tipos, nunca misture:** legenda (acompanha a fala), destaque (2 a 4 palavras grandes, só nos momentos decisivos) e texto de interface (o que está dentro do print ou da demonstração).
+- **Texto na tela tem três tipos, nunca misture:** fala escrita na tela (acompanha a fala; não confundir com a legenda do post), destaque (2 a 4 palavras grandes, só nos momentos decisivos) e texto de interface (o que está dentro do print ou da demonstração).
 - **Prova é real.** Print, número, depoimento e resultado só se forem dela. Faltou: "[a confirmar: print de …]". Interface recriada é marcada como simulação.
 - **O ritmo segue a voz da marca.** Se a Diretriz Visual diz editorial ou calmo, poucas cenas gráficas e mais rosto. Se diz enérgico, mais trocas. Nunca efeito por efeito.
 - **Quantidade:** de 6 a 10 cenas por minuto de vídeo. Intensidade calma fica perto de 6. Se a Diretriz não diz a intensidade, deduza pela voz da marca e registre "intensidade deduzida" no briefing.
@@ -149,14 +151,14 @@ Material: [vídeo bruto] · [gravações de tela] · [prints e provas] · [segun
 Destino: Reel · 9:16 · [duração estimada]
 Intensidade: [da Diretriz Visual: calma / média / enérgica]
 Marca: [cores, fonte de destaque e fonte de legenda da Diretriz Visual]
-Legenda: sem caixa de fundo · blocos de 2 a 5 palavras · 1 palavra em destaque por bloco, na cor de destaque da marca (se ela não tiver contraste sobre vídeo, use a cor clara de apoio da marca) · fora do rosto, das mãos e das provas
+Fala escrita na tela: sem caixa de fundo · blocos de 2 a 5 palavras · 1 palavra em destaque por bloco, na cor de destaque da marca (se ela não tiver contraste sobre vídeo, use a cor clara de apoio da marca) · fora do rosto, das mãos e das provas
 Destaques grandes: [os 2 ou 3 momentos do mapa que levam texto grande]
 Palavra-chave escrita no fechamento: [PALAVRA]
 Mapa de cenas: [acima]
 Provas: só as do material enviado. Nada de número, print ou resultado inventado.
 Ordem de trabalho: primeiro uma prévia de 10 segundos para aprovar o estilo; depois o vídeo inteiro.
-Antes de entregar: sem palavra cortada · legenda revisada (acentos, nomes, números) · texto legível no celular · voz na frente da trilha · palavra-chave na tela.
-Entrega: vídeo final + arquivo de legenda separado.
+Antes de entregar: sem palavra cortada · fala escrita revisada (acentos, nomes, números) · texto legível no celular · voz na frente da trilha · palavra-chave na tela.
+Entrega: vídeo final + arquivo da fala escrita (SRT) separado.
 ```
 
 ## Passo 6 · Salvar e entregar
