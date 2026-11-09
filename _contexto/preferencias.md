@@ -58,3 +58,5 @@ estrutura · mercado local · contexto europeu · posicionamento · caixa previs
 ## Preferências adicionais
 
 Para outputs visuais (slides, carrosséis, propostas), sempre consultar `marca/design-guide.md` antes de criar qualquer HTML.
+
+Roteiro e legenda da Kelly (Time de Marketing) não se mexem. Melhorias na Kelly entram só em volta deles (mapa de cenas, briefing de edição, pesquisa), nunca reescrevendo como ela escreve roteiro e legenda.
