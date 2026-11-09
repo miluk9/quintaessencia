@@ -10,10 +10,11 @@ Ajuste e estruturação — refinando o modelo das duas empresas para maior gera
 
 **Essência Digital:** Estruturar melhor a oferta de consultoria operacional — entrar no negócio, identificar gargalos e entregar estrutura funcional (processos + automações + IA + equipe treinada). Foco em resolver problemas reais, não vender "ferramenta bonita".
 
+**Essência Digital, nova frente (plataforma):** Montar uma plataforma própria para B2Bs (CRM + WhatsApp + automação + funcionários digitais), no modelo de Kommo e GoHighLevel. Referência de produto: winneria.com.br. A dor de pipeline e comercial apareceu na Salomé e nas clientes. Caminho em avaliação: white label (ex: GoHighLevel SaaS Mode) + implementação feita + funcionários digitais por cima (analista de pipeline, follow-up, resumo de call no CRM) + contexto europeu (RGPD) como diferencial. Modelo de receita a testar: setup de implementação + mensalidade da plataforma + funcionários digitais como upgrade. Salomé como cliente piloto.
+
 ## O que pode esperar
 
 - Projetos de conteúdo que não conectam diretamente com vendas ou posicionamento das duas empresas
-- Ferramentas novas antes de consolidar o que já está em uso
 - Expansão de canais antes de ter consistência nos atuais
 
 ## Contexto com prazo
