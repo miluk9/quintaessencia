@@ -23,6 +23,7 @@ Programa de aceleração de 6 meses para brasileiros que querem vender no mercad
 - Documentos pós-sessão estratégica
 - Newsletters e how-to guides
 - Propostas e apresentações do programa
+- Time de Marketing (skills Brenda, Kelly e Desiré): pesquisa de referências feita pela equipe no Creator Lab, pedida pela aluna no portal e devolvida em até 5 dias úteis (processo em `quinta-essencia/time-de-marketing/processo-pesquisa-de-referencias.md`)
 
 ---
 
