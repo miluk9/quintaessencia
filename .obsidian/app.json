@@ -1,0 +1,17 @@
+{
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "memoria",
+  "attachmentFolderPath": "memoria/anexos",
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": true,
+  "userIgnoreFilters": [
+    ".claude/",
+    "templates/skills/",
+    "templates/perfis/",
+    "templates/ferramentas/",
+    "automacoes/",
+    "dados/"
+  ]
+}

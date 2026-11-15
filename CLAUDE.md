@@ -115,3 +115,16 @@ Quando pedir para criar uma nova skill:
    - Global → `~/.claude/skills/nome-da-skill/SKILL.md`
 3. Ler `_contexto/empresa.md` e `_contexto/preferencias.md` para calibrar ao contexto
 4. Seguir o fluxo da skill-creator nativa do Claude Code
+
+---
+
+## Segundo cérebro (Obsidian)
+
+Este repositório é um vault do Obsidian. Ponto de entrada: `00-inicio.md`.
+
+- Memória fica em `memoria/`: `clientes/qe/`, `clientes/ed/`, `reunioes/`, `decisoes/`, `diario/`
+- Toda nota nova usa o template correspondente em `templates/obsidian/` (frontmatter incluso)
+- Links sempre em `[[wikilink]]`: reunião aponta pro cliente, decisão aponta pra reunião de onde veio
+- Nome de reunião: `AAAA-MM-DD Tipo Cliente`. Nome de cliente: pessoa (QE) ou empresa (ED)
+- Antes de sugerir preço, oferta, canal ou caminho com cliente, consultar `memoria/decisoes/` e a nota do cliente
+- Depois de reunião, proposta ou decisão relevante, atualizar a nota do cliente e linkar

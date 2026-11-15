@@ -34,3 +34,9 @@ tarefas.md
 # Sistema
 .DS_Store
 node_modules/
+
+# Obsidian: estado local de cada aparelho (não sincronizar)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
